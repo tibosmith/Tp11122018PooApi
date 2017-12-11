@@ -19,7 +19,7 @@ public class ContratMRH extends Contrat{
 		return cotisation;
 	}
 	
-	public Contrat creation(){
+	public Contrat creationContrat(){
 		Contrat monNouveauContrat = new ContratMRH();
 		return monNouveauContrat;
 	}

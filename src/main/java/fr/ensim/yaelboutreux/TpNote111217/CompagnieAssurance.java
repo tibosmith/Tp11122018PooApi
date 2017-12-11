@@ -1,6 +1,6 @@
 package fr.ensim.yaelboutreux.TpNote111217;
 
-public class CompagnieAssurance extends Contrat {
+public class CompagnieAssurance{
 	private String nom;
 	
 	/*

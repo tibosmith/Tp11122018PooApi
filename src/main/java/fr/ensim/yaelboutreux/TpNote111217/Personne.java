@@ -8,47 +8,50 @@ public class Personne {
 	private String nom;
 	private String prenom;
 	private Date dateDeNaissance;
+	private List<Contrat> listeContrat;
 	
-	/*
-	public boolean estClient{
-		
+	
+	/*public boolean estClient(){
+	return null;	
+	}*/
+	
+	
+	public String obtenirNomComplet(){
+		String NomComplet = (this.nom + " " + this.prenom); 
+		return NomComplet;
+	}
+	
+	public Date obtenirDateDeNaissance(){
+	return this.dateDeNaissance;
 	}
 	
 	
-	public String obtenirNomComplet{
+	/*public Contrat creerContrat(){
+		Contrat monNouveauContrat = new Contrat();
+		return monNouveauContrat;
+	}*/
 	
-	}
-	
-	public Date obtenirDateDeNaissance{
-	
-	}
-	
-	
-	public Contrat creerContrat{
-	
-	}
-	
-	public void resilierContrat(Contrat contratAResiliser){
-	
+	public void resilierContrat(Contrat contratAResilier){
+		contratAResilier.contratValide = false;
 	}
 	
 	public void resilierContrat(String uneStringIci){
-
+		//TODO
 	}
 	
 	public List<Contrat> obtenirContratsAuto(){
-	
+	return null;
 	}
 	
 	public List<Contrat> obtenirContratsMRH(){
-	
+	return null;
 	}
 	
 	public String toString(){
-	
+	return null;
 	}
 	
 	
-	*/
+	
 
 }

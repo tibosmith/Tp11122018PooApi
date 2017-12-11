@@ -18,7 +18,7 @@ public class ContratAuto extends Contrat{
 		return cotisation;
 	}
 	
-	public Contrat creation(){
+	public Contrat creationContrat(){
 		Contrat monNouveauContrat = new ContratAuto();
 		return monNouveauContrat;
 	}

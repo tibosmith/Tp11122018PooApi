@@ -19,7 +19,7 @@ public class ContratPrevoyance extends Contrat{
 		return cotisation;
 	}
 	
-	public Contrat creation(){
+	public Contrat creationContrat(){
 		Contrat monNouveauContrat = new ContratPrevoyance();
 		return monNouveauContrat;
 	}

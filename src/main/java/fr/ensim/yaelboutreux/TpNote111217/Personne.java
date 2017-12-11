@@ -1,7 +1,9 @@
 package fr.ensim.yaelboutreux.TpNote111217;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Personne {
 	private boolean estUnClient;
@@ -9,11 +11,44 @@ public class Personne {
 	private String prenom;
 	private Date dateDeNaissance;
 	private List<Contrat> listeContrat;
+	private List<Personne> famille;
 	
+	public boolean isEstUnClient() {
+		return estUnClient;
+	}
+	public void setEstUnClient(boolean estUnClient) {
+		this.estUnClient = estUnClient;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public Date getDateDeNaissance() {
+		return dateDeNaissance;
+	}
+	public void setDateDeNaissance(Date dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
+	}
 	
-	/*public boolean estClient(){
-	return null;	
-	}*/
+	public boolean estClient(){
+		int nombreContrats = this.obtenirContratsAuto().size() + this.obtenirContratsMRH().size() + this.obtenirContratsPrevoyance().size();
+		if(nombreContrats > 0) {
+			this.setEstUnClient(true);
+		}
+		else {
+			this.setEstUnClient(false);
+		}
+		return this.isEstUnClient();
+	}
+	
 	
 	
 	public String obtenirNomComplet(){
@@ -22,33 +57,89 @@ public class Personne {
 	}
 	
 	public Date obtenirDateDeNaissance(){
-	return this.dateDeNaissance;
+		return this.dateDeNaissance;
 	}
 	
 	
-	/*public Contrat creerContrat(){
-		Contrat monNouveauContrat = new Contrat();
-		return monNouveauContrat;
-	}*/
+	public Contrat creerContrat(int choix){
+		if(choix == 0) {
+			Contrat monNouveauContrat = new ContratAuto();
+			return monNouveauContrat;	
+		}
+		else {
+			if(choix == 1) {
+				Contrat monNouveauContrat = new ContratMRH();
+				return monNouveauContrat;	
+			}
+			else {
+				Contrat monNouveauContrat = new ContratPrevoyance();
+				return monNouveauContrat;	
+			}
+		}	
+	}
 	
 	public void resilierContrat(Contrat contratAResilier){
 		contratAResilier.contratValide = false;
 	}
 	
-	public void resilierContrat(String uneStringIci){
-		//TODO
+	public void resilierContrat(String numeroContrat){
+		for(Contrat contrat : this.obtenirContratsAuto()) {
+			if(numeroContrat.equals(contrat.numeroContrat)){
+				contrat.contratValide = false;
+			}
+		}
+		for(Contrat contrat : this.obtenirContratsMRH()) {
+			if(numeroContrat.equals(contrat.numeroContrat)){
+				contrat.contratValide = false;
+			}
+		}
+		for(Contrat contrat : this.obtenirContratsPrevoyance()) {
+			if(numeroContrat.equals(contrat.numeroContrat)){
+				contrat.contratValide = false;
+			}
+		}
 	}
 	
 	public List<Contrat> obtenirContratsAuto(){
-	return null;
+		List<Contrat> listeContratAuto = new ArrayList<Contrat>();
+		for(Contrat thisContrat : listeContrat) {
+			if(thisContrat instanceof ContratAuto) {
+				if(thisContrat.contratValide == true) {
+					listeContratAuto.add(thisContrat);
+				}	
+			}			
+		}	
+		return listeContratAuto;
 	}
 	
 	public List<Contrat> obtenirContratsMRH(){
-	return null;
+		List<Contrat> listeContratMRH = new ArrayList<Contrat>();
+		for(Contrat thisContrat : listeContrat) {
+			if(thisContrat instanceof ContratMRH) {
+				if(thisContrat.contratValide == true) {
+					listeContratMRH.add(thisContrat);
+				}	
+			}			
+		}	
+		return listeContratMRH;
+	}
+	
+	public List<Contrat> obtenirContratsPrevoyance(){
+		List<Contrat> listeContratPrevoyance = new ArrayList<Contrat>();
+		for(Contrat thisContrat : listeContrat) {
+			if(thisContrat instanceof ContratPrevoyance) {
+				if(thisContrat.contratValide == true) {
+					listeContratPrevoyance.add(thisContrat);
+				}	
+			}			
+		}	
+		return listeContratPrevoyance;
 	}
 	
 	public String toString(){
-	return null;
+		int nombreContrats = this.obtenirContratsAuto().size() + this.obtenirContratsMRH().size() + this.obtenirContratsPrevoyance().size();
+		String message = "Client " + this.obtenirNomComplet() + " : " + this.estClient() + ", nombre de contrat(s) : " + nombreContrats;
+		return message;
 	}
 	
 	

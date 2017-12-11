@@ -2,6 +2,7 @@ package fr.ensim.yaelboutreux.TpNote111217;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ContratAuto extends Contrat{
 
@@ -20,6 +21,8 @@ public class ContratAuto extends Contrat{
 	
 	public Contrat creationContrat(){
 		Contrat monNouveauContrat = new ContratAuto();
+		this.contratValide = true;
+		this.numeroContrat = UUID.randomUUID().toString();
 		return monNouveauContrat;
 	}
 }

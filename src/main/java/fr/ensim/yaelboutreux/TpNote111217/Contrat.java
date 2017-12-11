@@ -1,24 +1,11 @@
 package fr.ensim.yaelboutreux.TpNote111217;
 
-public class Contrat {
+public abstract class Contrat {
 	
-	private String numeroContrat;
-	private boolean contratValide;
-	
-	/*
-	 public abstract Contrat creationContrat(){
-	 
-	 }
-	 
-	 public abstract <List>String determinerGranties(){
-	 
-	 }
-	 
-	 public abstract double determinerCotisations(){
-	 
-	 }
-	 
-	 
-	 
-	 */
+	protected String numeroContrat;
+	protected boolean contratValide;
+
+	public abstract Contrat creationContrat(); 
+	public abstract <List>String determinerGaranties(); 
+	public abstract double determinerCotisation();
 }

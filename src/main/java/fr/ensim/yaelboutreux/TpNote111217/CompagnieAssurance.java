@@ -1,12 +1,13 @@
 package fr.ensim.yaelboutreux.TpNote111217;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //Done
 
 public class CompagnieAssurance{
 	private String nom;
-	private List<Personne> listeClientProspect;
+	private List<Personne> listeClientProspect = new ArrayList<Personne>();
 	
 	public int obtenirNombreDeClients(){
 		int nombreClient = 0;

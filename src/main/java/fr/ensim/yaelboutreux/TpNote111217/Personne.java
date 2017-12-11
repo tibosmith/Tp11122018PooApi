@@ -3,15 +3,14 @@ package fr.ensim.yaelboutreux.TpNote111217;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 public class Personne {
 	private boolean estUnClient;
 	private String nom;
 	private String prenom;
 	private Date dateDeNaissance;
-	private List<Contrat> listeContrat;
-	private List<Personne> famille;
+	private List<Contrat> listeContrat = new ArrayList<Contrat>();
+	private List<Personne> famille = new ArrayList<Personne>();
 	
 	public List<Contrat> getListeContrat() {
 		return listeContrat;
@@ -79,17 +78,20 @@ public class Personne {
 	public Contrat creerContrat(int choix){
 		if(choix == 0) {
 			Contrat monNouveauContrat = new ContratAuto();
+			this.listeContrat.add(monNouveauContrat);
 			return monNouveauContrat;	
 		}
 		else {
 			if(choix == 1) {
 				Contrat monNouveauContrat = new ContratMRH();
+				this.listeContrat.add(monNouveauContrat);
 				return monNouveauContrat;	
 			}
 			else {
 				Contrat monNouveauContrat = new ContratPrevoyance();
+				this.listeContrat.add(monNouveauContrat);
 				return monNouveauContrat;	
-			}
+			}	
 		}	
 	}
 	
@@ -153,7 +155,7 @@ public class Personne {
 	
 	public String toString(){
 		int nombreContrats = this.obtenirContratsAuto().size() + this.obtenirContratsMRH().size() + this.obtenirContratsPrevoyance().size();
-		String message = "Client " + this.obtenirNomComplet() + " : " + this.estClient() + ", nombre de contrat(s) : " + nombreContrats;
+		String message = this.obtenirNomComplet() + ", Client : " + this.estClient() + ", nombre de contrat(s) : " + nombreContrats;
 		return message;
 	}
 	

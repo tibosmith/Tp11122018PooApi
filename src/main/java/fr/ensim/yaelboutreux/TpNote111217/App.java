@@ -15,16 +15,16 @@ public class App
         paul.creerContrat(1);
         paul.creerContrat(1);
         paul.creerContrat(0);
+        System.out.println(paul.toString());
         Personne florentin = new Personne();
         florentin.setNom("PAILLIER");
         florentin.setPrenom("Florentin");
         florentin.creerContrat(1);
         florentin.resilierContrat(florentin.getListeContrat().get(0));
+        System.out.println(florentin.toString());
         Personne hugo = new Personne();
         hugo.setNom("SERGENT");
         hugo.setPrenom("Hugo");
-        paul.toString();
-        florentin.toString();
-        hugo.toString(); 
+        System.out.println(hugo.toString());
     }
 }

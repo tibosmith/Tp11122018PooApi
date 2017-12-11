@@ -13,6 +13,21 @@ public class Personne {
 	private List<Contrat> listeContrat;
 	private List<Personne> famille;
 	
+	public List<Contrat> getListeContrat() {
+		return listeContrat;
+	}
+	public void setListeContrat(List<Contrat> listeContrat) {
+		this.listeContrat = listeContrat;
+	}
+	public List<Personne> getFamille() {
+		return famille;
+	}
+	public void setFamille(List<Personne> famille) {
+		this.famille = famille;
+	}
+
+	
+	
 	public boolean isEstUnClient() {
 		return estUnClient;
 	}

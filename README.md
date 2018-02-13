@@ -1,5 +1,5 @@
 # TP Noté API POO 11/12/2017
-### Supervisé par Thibaud Smith
+### Supervisé par Thibaut Smith
 
 ## Status
 
